@@ -8,8 +8,8 @@ public class Task_550 {
 
     public static void main(String[] args) {
 
-        String str;
-        String str2;
+        String dateLeapYear;
+        String dateYear;
         int year = 0;
         try (BufferedReader in = new BufferedReader(new FileReader("input.txt"))) {
             Scanner scan = new Scanner(in);
@@ -19,14 +19,14 @@ public class Task_550 {
         }
 
         if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
-            str = "12/09/";
+            dateLeapYear = "12/09/";
         } else {
-            str = "13/09/";
+            dateLeapYear = "13/09/";
         }
 
-        str2 = String.format("%04d", year);
+        dateYear = String.format("%04d", year);
         try (FileWriter output = new FileWriter("output.txt")) {
-            output.write(str + str2);
+            output.write(dateLeapYear + dateYear);
         } catch (IOException | NumberFormatException e) {
             e.printStackTrace();
         }

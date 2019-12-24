@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 public class Task_58 {
 
-    public static boolean isPretty(int arr[][], int n, int m) {
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < m - 1; j++) {
+    public static boolean isPretty(int arr[][], int row, int column) {
+        for (int i = 0; i < row - 1; i++) {
+            for (int j = 0; j < column - 1; j++) {
                 if (arr[i][j] + arr[i][j + 1] + arr[i + 1][j] + arr[i + 1][j + 1] % 4 == 0) {
                     return false;
                 }
@@ -20,22 +20,22 @@ public class Task_58 {
     public static void main(String[] args) {
 
         int N = 100;
-        int t, n, m;
+        int quantity, row, column;
         int array[][] = new int[N][N];
         StringBuilder result = new StringBuilder();
 
         try (BufferedReader in = new BufferedReader(new FileReader("input.txt"))) {
             Scanner scanner = new Scanner(in);
-            t = scanner.nextInt();
-            for (int i = 0; i < t; i++) {
-                n = scanner.nextInt();
-                m = scanner.nextInt();
-                for (int k = 0; k < n; k++) {
-                    for (int j = 0; j < m; j++) {
+            quantity = scanner.nextInt();
+            for (int i = 0; i < quantity; i++) {
+                row = scanner.nextInt();
+                column = scanner.nextInt();
+                for (int k = 0; k < row; k++) {
+                    for (int j = 0; j < column; j++) {
                         array[k][j] = scanner.nextInt();
                     }
                 }
-                result.append(isPretty(array, n, m) ? "YES\n" : "NO\n");
+                result.append(isPretty(array, row, column) ? "YES\n" : "NO\n");
             }
         } catch (IOException e) {
             e.printStackTrace();

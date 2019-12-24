@@ -20,21 +20,24 @@ public class Task_58 {
 
         int N = 100;
         int t, n, m;
-        int array[][] = new int[4][4];
+        int array[][] = new int[N][N];
 
         try (BufferedReader in = new BufferedReader(new FileReader("input.txt"))) {
             Scanner scanner = new Scanner(in);
-            n = scanner.nextInt();
-            m = scanner.nextInt();
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < m; j++) {
-                    array[i][j] = scanner.nextInt();
+            t = scanner.nextInt();
+            for (int i=0;i<t;i++) {
+                n = scanner.nextInt();
+                m = scanner.nextInt();
+                for (int k = 0; k < n; k++) {
+                    for (int j = 0; j < m; j++) {
+                        array[k][j] = scanner.nextInt();
+                    }
                 }
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 System.out.print(array[i][j]);

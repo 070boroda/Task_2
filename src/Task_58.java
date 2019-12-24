@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -21,11 +22,12 @@ public class Task_58 {
         int N = 100;
         int t, n, m;
         int array[][] = new int[N][N];
+        StringBuilder result = new StringBuilder();
 
         try (BufferedReader in = new BufferedReader(new FileReader("input.txt"))) {
             Scanner scanner = new Scanner(in);
             t = scanner.nextInt();
-            for (int i=0;i<t;i++) {
+            for (int i = 0; i < t; i++) {
                 n = scanner.nextInt();
                 m = scanner.nextInt();
                 for (int k = 0; k < n; k++) {
@@ -33,16 +35,16 @@ public class Task_58 {
                         array[k][j] = scanner.nextInt();
                     }
                 }
+                result.append(isPretty(array, n, m) ? "YES\n" : "NO\n");
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(array[i][j]);
-            }
-            System.out.println();
+        try (FileWriter output = new FileWriter("output.txt")) {
+            output.write(result.toString());
+        } catch (IOException | NumberFormatException e) {
+            e.printStackTrace();
         }
     }
 }
